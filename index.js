@@ -1,21 +1,23 @@
 const main = document.getElementById("main");
-const themeToggle = document.getElementById("theme-toggle");
+const themeLists = document.getElementById("theme-lists");
 const title = document.getElementById("title");
+const buttons = themeLists.querySelectorAll("button");
 
 function setTheme(theme) {
   main.setAttribute("data-theme", theme);
-  themeToggle.checked = theme === "dark";
+  localStorage.setItem("theme", theme);
 }
 
 window.onload = () => {
   const savedTheme = localStorage.getItem("theme");
-  setTheme(savedTheme ? savedTheme : "dark");
+  setTheme(savedTheme ? savedTheme : "night");
 };
 
-themeToggle.addEventListener("change", () => {
-  const theme = themeToggle.checked ? "dark" : "light";
-  setTheme(theme);
-  localStorage.setItem("theme", theme);
+buttons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const theme = button.getAttribute("data-theme");
+    setTheme(theme);
+  });
 });
 
 function typeText(element, text, speed = 100, deleteSpeed = 50, pause = 1000) {
