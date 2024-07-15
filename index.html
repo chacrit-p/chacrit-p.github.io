@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>My Portfolio</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
     <meta property="og:title" content="My Portfolio" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://chacrit-p.github.io" />
-    <meta property="og:image" content="/public/android-chrome-192x192.png" />
+    <meta property="og:image" content="/public/assets/logo.jpg" />
     <meta
       property="og:description"
       content="Welcome to my portfolio website! This is a simple and clean
@@ -39,263 +39,36 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <main id="main" class="min-h-screen bg-base-100">
-      <nav class="py-5">
-        <div class="max-w-3xl mx-auto w-full">
-          <div class="flex justify-end px-3 lg:px-0">
-            <div class="dropdown dropdown-end">
-              <div tabindex="0" role="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-7 stroke-2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
-                  />
-                </svg>
-              </div>
-              <ul
-                id="theme-lists"
-                tabindex="0"
-                class="dropdown-content bg-base-100 z-[1] w-56 p-2 gap-2 shadow rounded-box menu grid grid-cols-1 h-[450px] overflow-y-auto"
-              >
-                <li data-theme="light" class="rounded-btn">
-                  <button type="button" data-theme="light">
-                    <span class="capitalize"> light </span>
-                  </button>
-                </li>
-                <li data-theme="dark" class="rounded-btn">
-                  <button type="button" data-theme="dark">
-                    <span class="capitalize"> dark </span>
-                  </button>
-                </li>
-                <li data-theme="cupcake" class="rounded-btn">
-                  <button type="button" data-theme="cupcake">
-                    <span class="capitalize"> cupcake </span>
-                  </button>
-                </li>
-                <li data-theme="bumblebee" class="rounded-btn">
-                  <button type="button" data-theme="bumblebee">
-                    <span class="capitalize"> bumblebee </span>
-                  </button>
-                </li>
-                <li data-theme="emerald" class="rounded-btn">
-                  <button type="button" data-theme="emerald">
-                    <span class="capitalize"> emerald </span>
-                  </button>
-                </li>
-                <li data-theme="corporate" class="rounded-btn">
-                  <button type="button" data-theme="corporate">
-                    <span class="capitalize"> corporate </span>
-                  </button>
-                </li>
-                <li data-theme="synthwave" class="rounded-btn">
-                  <button type="button" data-theme="synthwave">
-                    <span class="capitalize"> synthwave </span>
-                  </button>
-                </li>
-                <li data-theme="retro" class="rounded-btn">
-                  <button type="button" data-theme="retro">
-                    <span class="capitalize"> retro </span>
-                  </button>
-                </li>
-                <li data-theme="cyberpunk" class="rounded-btn">
-                  <button type="button" data-theme="cyberpunk">
-                    <span class="capitalize"> cyberpunk </span>
-                  </button>
-                </li>
-                <li data-theme="valentine" class="rounded-btn">
-                  <button type="button" data-theme="valentine">
-                    <span class="capitalize"> valentine </span>
-                  </button>
-                </li>
-                <li data-theme="halloween" class="rounded-btn">
-                  <button type="button" data-theme="halloween">
-                    <span class="capitalize"> halloween </span>
-                  </button>
-                </li>
-                <li data-theme="garden" class="rounded-btn">
-                  <button type="button" data-theme="garden">
-                    <span class="capitalize"> garden </span>
-                  </button>
-                </li>
-                <li data-theme="forest" class="rounded-btn">
-                  <button type="button" data-theme="forest">
-                    <span class="capitalize"> forest </span>
-                  </button>
-                </li>
-                <li data-theme="aqua" class="rounded-btn">
-                  <button type="button" data-theme="aqua">
-                    <span class="capitalize"> aqua </span>
-                  </button>
-                </li>
-                <li data-theme="lofi" class="rounded-btn">
-                  <button type="button" data-theme="lofi">
-                    <span class="capitalize"> lofi </span>
-                  </button>
-                </li>
-                <li data-theme="pastel" class="rounded-btn">
-                  <button type="button" data-theme="pastel">
-                    <span class="capitalize"> pastel </span>
-                  </button>
-                </li>
-                <li data-theme="fantasy" class="rounded-btn">
-                  <button type="button" data-theme="fantasy">
-                    <span class="capitalize"> fantasy </span>
-                  </button>
-                </li>
-                <li data-theme="wireframe" class="rounded-btn">
-                  <button type="button" data-theme="wireframe">
-                    <span class="capitalize"> wireframe </span>
-                  </button>
-                </li>
-                <li data-theme="black" class="rounded-btn">
-                  <button type="button" data-theme="black">
-                    <span class="capitalize"> black </span>
-                  </button>
-                </li>
-                <li data-theme="luxury" class="rounded-btn">
-                  <button type="button" data-theme="luxury">
-                    <span class="capitalize"> luxury </span>
-                  </button>
-                </li>
-                <li data-theme="dracula" class="rounded-btn">
-                  <button type="button" data-theme="dracula">
-                    <span class="capitalize"> dracula </span>
-                  </button>
-                </li>
-                <li data-theme="cmyk" class="rounded-btn">
-                  <button type="button" data-theme="cmyk">
-                    <span class="capitalize"> cmyk </span>
-                  </button>
-                </li>
-                <li data-theme="autumn" class="rounded-btn">
-                  <button type="button" data-theme="autumn">
-                    <span class="capitalize"> autumn </span>
-                  </button>
-                </li>
-                <li data-theme="business" class="rounded-btn">
-                  <button type="button" data-theme="business">
-                    <span class="capitalize"> business </span>
-                  </button>
-                </li>
-                <li data-theme="acid" class="rounded-btn">
-                  <button type="button" data-theme="acid">
-                    <span class="capitalize"> acid </span>
-                  </button>
-                </li>
-                <li data-theme="lemonade" class="rounded-btn">
-                  <button type="button" data-theme="lemonade">
-                    <span class="capitalize"> lemonade </span>
-                  </button>
-                </li>
-                <li data-theme="night" class="rounded-btn">
-                  <button type="button" data-theme="night">
-                    <span class="capitalize"> night </span>
-                  </button>
-                </li>
-                <li data-theme="coffee" class="rounded-btn">
-                  <button type="button" data-theme="coffee">
-                    <span class="capitalize"> coffee </span>
-                  </button>
-                </li>
-                <li data-theme="winter" class="rounded-btn">
-                  <button type="button" data-theme="winter">
-                    <span class="capitalize"> winter </span>
-                  </button>
-                </li>
-                <li data-theme="dim" class="rounded-btn">
-                  <button type="button" data-theme="dim">
-                    <span class="capitalize"> dim </span>
-                  </button>
-                </li>
-                <li data-theme="nord" class="rounded-btn">
-                  <button type="button" data-theme="nord">
-                    <span class="capitalize"> nord </span>
-                  </button>
-                </li>
-                <li data-theme="sunset" class="rounded-btn">
-                  <button type="button" data-theme="sunset">
-                    <span class="capitalize"> sunset </span>
-                  </button>
-                </li>
-              </ul>
+    <main
+      data-theme="light"
+      class="antialiased min-h-screen bg-base-100 text-base-content font-mono"
+    >
+      <section
+        class="container max-w-5xl mx-auto p-6 xl:px-0 flex items-center w-full pt-24"
+      >
+        <div class="flex flex-col-reverse lg:flex-row gap-10 lg:gap-0 justify-between items-center w-full">
+          <div class="flex flex-col justify-center h-80">
+            <div class="flex gap-2 mb-4">
+              <span class="badge bg-base-200"> CIS student </span>
+              <span class="badge bg-base-200"> Frontend Dev </span>
+              <span class="badge bg-base-200"> Backend Dev </span>
             </div>
-          </div>
-        </div>
-      </nav>
-      <section class="lg:mt-10">
-        <div class="max-w-3xl mx-auto w-full px-6 lg:px-0">
-          <div class="flex flex-col md:flex-row items-cener gap-5 lg:gap-12">
-            <div
-              class="avatar ring-2 ring-primary/75 ring-offset-4 ring-offset-base-100 rounded-full w-fit"
-            >
-              <div class="w-56 rounded-full">
-                <img src="/public/assets/images/rimuru.gif" />
-              </div>
-            </div>
-
-            <div class="min-h-56">
-              <div class="flex gap-2 mb-3 mt-5">
-                <span
-                  class="text-xs bg-base-300 text-base-content py-1.5 px-3 rounded-btn cursor-default w-fit"
-                  >CIS Student
-                </span>
-                <span
-                  class="text-xs bg-base-300 text-base-content py-1.5 px-3 rounded-btn cursor-default w-fit"
-                  >Frontend
-                </span>
-                <span
-                  class="text-xs bg-base-300 text-base-content py-1.5 px-3 rounded-btn cursor-default w-fit"
-                  >Backend
-                </span>
-              </div>
-              <h1
-                id="title"
-                class="text-2xl sm:text-3xl font-semibold min-h-[36px]"
-              ></h1>
-              <p class="mt-2 font-light max-w-lg">
-                Welcome to my portfolio website! This is a simple and clean
-                portfolio showcasing my work and projects. The website is built
-                using HTML and styled with Tailwind CSS. 55555 test
-              </p>
-              <div class="mt-4 flex flex-col md:flex-row gap-3">
-                <div
-                  class="flex items-center gap-2 bg-base-300 py-2 px-4 rounded-btn cursor-default w-fit"
-                >
+            <h1 class="text-5xl mb-3">Hi I'm Chacrit Poonpipit</h1>
+            <p class="max-w-xl mb-4">
+              Welcome to my portfolio website! This is a simple and clean
+              portfolio showcasing my work and projects. The website is built
+              using HTML and styled with Tailwind CSS.
+            </p>
+            <div class="flex gap-5 mb-7">
+              <div class="tooltip tooltip-bottom" data-tip="my github">
+                <a target="_blank" href="https://github.com/chacrit-p">
                   <svg
-                    class="w-6 h-6"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-width="2"
-                      d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
-                    />
-                  </svg>
-
-                  <span> chacrit.p@kkumail.com </span>
-                </div>
-                <div
-                  class="flex items-center gap-2 bg-base-300 py-2 px-4 rounded-btn cursor-default w-fit"
-                >
-                  <svg
-                    class="w-6 h-6"
+                    class="size-7 stroke-secondary text-base-100 hover:text-base-content hover:stroke-none transition"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -307,77 +80,41 @@
                       fill-rule="evenodd"
                       d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
                       clip-rule="evenodd"
+                    /></svg
+                ></a>
+              </div>
+              <div class="tooltip tooltip-bottom" data-tip="my email">
+                <a target="_blank" href="mailto:chacrit.p@kkumail.com">
+                  <svg
+                    class="size-7 stroke-secondary text-base-100 hover:text-base-content hover:stroke-none transition"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z"
+                    />
+                    <path
+                      d="M20.677 4.117A1.996 1.996 0 0 0 20 4H4c-.225 0-.44.037-.642.105l.758.607L12 10.742 19.9 4.7l.777-.583Z"
                     />
                   </svg>
-                  <span> chacrit-p </span>
-                </div>
+                </a>
               </div>
             </div>
           </div>
-
-          <div class="mt-10">
-            <h3
-              class="text-center border-b-2 border-base-content font-semibold pb-2"
-            >
-              My Projects
-            </h3>
-
-            <div class="mt-5">
-              <ul class="list-decimal list-inside space-y-5">
-                <li class="text-lg font-semibold">
-                  <a
-                    class="link"
-                    target="_blank"
-                    href="/src/todo-application/index.html"
-                  >
-                    Todo Application
-                  </a>
-                  <span
-                    class="ml-2 py-1 px-2 rounded-btn text-xs bg-primary text-primary-content"
-                  >
-                    Html
-                  </span>
-                  <span
-                    class="ml-1 py-1 px-2 rounded-btn text-xs bg-secondary text-secondary-content"
-                  >
-                    Javascript
-                  </span>
-                  <span
-                    class="ml-1 py-1 px-2 rounded-btn text-xs bg-accent text-accent-content"
-                  >
-                    Tailwind
-                  </span>
-                </li>
-                <li class="text-lg font-semibold">
-                  <a
-                    class="link"
-                    target="_blank"
-                    href="/src/todo-application/index.html"
-                  >
-                    Todo Application
-                  </a>
-                  <span
-                    class="ml-2 py-1 px-2 rounded-btn text-xs bg-primary text-primary-content"
-                  >
-                    Html
-                  </span>
-                  <span
-                    class="ml-1 py-1 px-2 rounded-btn text-xs bg-secondary text-secondary-content"
-                  >
-                    Javascript
-                  </span>
-                  <span
-                    class="ml-1 py-1 px-2 rounded-btn text-xs bg-accent text-accent-content"
-                  >
-                    Tailwind
-                  </span>
-                </li>
-              </ul>
+          <div class="flex justify-end">
+            <div class="avatar">
+              <div class="w-80 rounded-full shadow-xl">
+                <img src="/public/assets/images/nagi.gif" alt="nagi" />
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <section id="work" class="container max-w-5xl mx-auto"></section>
     </main>
   </body>
-  <script src="index.js"></script>
 </html>
