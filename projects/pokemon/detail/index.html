@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Pokemon Lab
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="container p-10 mx-auto">
+        <div class=" bg-base-100 w-96 shadow-xl rounded-box p-6 mx-auto">
+            <img class="h-[200px] mx-auto" id="image" />
+            <h2 id="title" class="text-center"></h2>
+        </div>
+    </div>
+
+    <script>
+
+        const title = document.getElementById('title')
+        const image = document.getElementById('image')
+
+        function getUrlParameter(name) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get(name)
+        }
+
+        const pokemonName = getUrlParameter('name');
+        const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonName
+
+        axios.get(url)
+            .then((res) => {
+                const pokemon = res.data
+
+                document.title = pokemon.name
+                title.innerHTML = pokemon.name
+
+                image.src = pokemon.sprites.front_default
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    </script>
+</body>
+
+</html>
