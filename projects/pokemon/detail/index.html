@@ -1,58 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Pokemon Lab
-    </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  </head>
 
-<body>
-    <div class="container p-10 mx-auto">
-        <div id="pokemon">
-
-        </div>
+  <body>
+    <div class="container py-10 mx-auto">
+      <img
+        class="mx-auto"
+        src="/public/assets/images/pokeapi.png"
+        alt="pokeapi"
+      />
+      <p class="mx-auto max-w-lg text-center mt-5 text-lg p-3 md:p-0">
+        All the Pokémon data you'll ever need in one place, easily accessible
+        through a modern free open-source RESTful API.
+      </p>
+      <div
+        class="mx-auto max-w-4xl mt-10 flex justify-center gap-3"
+        id="pokemon"
+      ></div>
     </div>
 
     <script>
-        const pokemonDiv = document.getElementById("pokemon");
+      const pokemonDiv = document.getElementById("pokemon");
 
-        function createPokemonCard(pokemon) {
-            const div = document.createElement("div");
+      const renderPokemon = (pokemon) => {
+        document.title = pokemon.name;
+        const main = document.createElement("div");
 
-            const name = `<p>Name: ${pokemon.name}</p>`;
-            const abilities = `<p>Abilities: ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>`;
-            const image = `<img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" style="width: 100px; height: 100px;">`; // Adjust width and height as needed
-            const type = `<p>Type: ${pokemon.types.map(type => type.type.name).join(', ')}</p>`;
+        const img = document.createElement("img");
+        img.className = "mx-auto";
+        img.src = pokemon.sprites.front_default;
+        main.appendChild(img);
 
-            div.innerHTML = name + abilities + image + type;
-            pokemonDiv.appendChild(div);
-        }
+        const h1 = document.createElement("h1");
+        h1.className = "text-center text-2xl font-semibold capitalize";
+        h1.textContent = pokemon.name;
+        main.appendChild(h1);
 
-        function getUrlParameter(name) {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            return urlParams.get(name)
-        }
+        const types = pokemon.types;
+        types.forEach((type) => {
+          const typeElement = document.createElement("span");
+          typeElement.className = "badge badge-primary mr-2 mb-2 mt-2";
+          typeElement.textContent = type.type.name;
+          main.appendChild(typeElement);
+        });
 
-        const pokemonName = getUrlParameter('name');
-        const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonName
+        main.appendChild(document.createElement("br"));
 
-        axios.get(url)
-            .then((res) => {
-                const pokemon = res.data
-                document.title = pokemon.name
-                createPokemonCard(pokemon)
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        const weight = document.createElement("span");
+        weight.className = "mr-4";
+        weight.innerHTML = `weight: ${pokemon.weight}`;
+        main.appendChild(weight);
+
+        const height = document.createElement("span");
+        height.innerHTML = `height: ${pokemon.height}`;
+        main.appendChild(height);
+
+        pokemonDiv.appendChild(main);
+      };
+
+      const getUrlParameter = (name) => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        return urlParams.get(name);
+      };
+
+      const getPokemon = (url) => {
+        axios
+          .get(url)
+          .then((res) => {
+            renderPokemon(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
+      const url =
+        "https://pokeapi.co/api/v2/pokemon/" + getUrlParameter("name");
+      getPokemon(url);
     </script>
-</body>
-
+  </body>
 </html>
