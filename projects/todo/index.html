@@ -1,83 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo Application</title>
+    <title>Todo List</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  </head>
 
-<body class="container mx-auto p-5">
-    <h1 class="text-center text-2xl font-semibold">Todo Application</h1>
-    <ul class="list-disc list-inside space-y-3" id="todo">
+  <body>
+    <div class="max-w-xl mx-auto py-6">
+      <h1 class="text-3xl font-semibold text-center mb-4">Todo list</h1>
 
-    </ul>
-    <form>
-        <input class="border p-2 rounded-md border-gray-300 mt-3" type="text" placeholder="Leanring Python" />
-        <button class="bg-green-600 rounded-md px-4 py-2 font-semibold text-gray-100 hover:bg-green-600" type="submit">
-            Add
+      <form class="grid grid-cols-12">
+        <input
+          id="addTodo"
+          type="text"
+          placeholder="Type here"
+          class="col-span-10 input input-bordered w-full rounded-r-none"
+        />
+        <button class="col-span-2 btn btn-primary rounded-l-none" type="submit">
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 12h14m-7 7V5"
+            />
+          </svg>
         </button>
-    </form>
+      </form>
+
+      <ul class="list-decimal list-inside space-y-3 mt-6"></ul>
+    </div>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const todoList = document.getElementById("todo");
-            const todoInput = document.querySelector("input[type='text']");
-            const addButton = document.querySelector("button[type='submit']");
+      document.addEventListener("DOMContentLoaded", function () {
+        const addTodoInput = document.getElementById("addTodo");
+        const todoList = document.querySelector("ul");
 
-            function loadTodos() {
-                const todos = JSON.parse(localStorage.getItem("todos")) || [];
-                todos.forEach((todo) => addTodoItem(todo));
+        function renderTodos() {
+          const todos = JSON.parse(localStorage.getItem("todos")) || [];
+          todoList.innerHTML = "";
+          todos.forEach((todo, index) => {
+            const li = document.createElement("li");
+            li.className =
+              "p-4 w-full shadow-xl rounded-btn border text-lg font-semibold flex justify-between";
+            const div = document.createElement("div");
+            const divTwo = document.createElement("div");
+            div.textContent = todo.text;
+            if (todo.completed) {
+              div.classList.add("line-through", "opacity-50");
             }
-
-            function saveTodos() {
-                const todos = [];
-                todoList.querySelectorAll("li span").forEach((span) => {
-                    todos.push(span.textContent);
-                });
-                localStorage.setItem("todos", JSON.stringify(todos));
-            }
-
-            function addTodoItem(task) {
-                const li = document.createElement("li");
-                const span = document.createElement("span");
-                span.textContent = task;
-
-                const button = document.createElement("button");
-                button.className =
-                    "bg-red-500 px-4 py-1 font-semibold rounded-md hover:bg-red-600 ml-2";
-                button.type = "button";
-
-                const svg = `
-        <svg class="size-5 text-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
-        </svg>
+            const doneButton = document.createElement("button");
+            doneButton.className = "btn btn-success btn-sm mr-3";
+            doneButton.innerHTML = `
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/>
+      </svg>
       `;
-                button.innerHTML = svg;
-
-                button.addEventListener("click", () => {
-                    todoList.removeChild(li);
-                    saveTodos();
-                });
-
-                li.appendChild(span);
-                li.appendChild(button);
-                todoList.appendChild(li);
-            }
-
-            addButton.addEventListener("click", (event) => {
-                event.preventDefault();
-                const task = todoInput.value.trim();
-                if (task) {
-                    addTodoItem(task);
-                    saveTodos();
-                    todoInput.value = "";
-                }
+            doneButton.addEventListener("click", function () {
+              toggleComplete(index);
             });
+            const deleteButton = document.createElement("button");
+            deleteButton.className = "btn btn-error btn-sm";
+            deleteButton.innerHTML = `
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
+</svg>
+`;
+            deleteButton.addEventListener("click", function () {
+              deleteTodo(index);
+            });
+            li.appendChild(div);
+            divTwo.appendChild(doneButton);
+            divTwo.appendChild(deleteButton);
+            divTwo.appendChild(deleteButton);
+            li.appendChild(divTwo);
+            todoList.appendChild(li);
+          });
+        }
 
-            loadTodos();
-        });
+        function addTodo() {
+          const todos = JSON.parse(localStorage.getItem("todos")) || [];
+          const newTodo = {
+            text: addTodoInput.value,
+            completed: false,
+          };
+          todos.push(newTodo);
+          localStorage.setItem("todos", JSON.stringify(todos));
+          addTodoInput.value = "";
+          renderTodos();
+        }
+
+        function toggleComplete(index) {
+          const todos = JSON.parse(localStorage.getItem("todos"));
+          todos[index].completed = !todos[index].completed;
+          localStorage.setItem("todos", JSON.stringify(todos));
+          renderTodos();
+        }
+
+        function deleteTodo(index) {
+          const todos = JSON.parse(localStorage.getItem("todos"));
+          todos.splice(index, 1);
+          localStorage.setItem("todos", JSON.stringify(todos));
+          renderTodos();
+        }
+
+        document
+          .querySelector("form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            addTodo();
+          });
+
+        renderTodos();
+      });
     </script>
-</body>
-
+  </body>
 </html>
