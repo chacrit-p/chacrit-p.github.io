@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PokeApi</title>
+    <title>Pokemon Labs</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
@@ -13,25 +13,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
-  <body>
-    <div class="container py-10 mx-auto">
-      <img
-        class="mx-auto"
-        src="/public/assets/images/pokeapi.png"
-        alt="pokeapi"
-      />
-      <p class="mx-auto max-w-lg text-center mt-5 text-lg p-3 md:p-0">
-        All the Pokémon data you'll ever need in one place, easily accessible
-        through a modern free open-source RESTful API.
-      </p>
+  <body data-theme="pastel">
+    <div class="container mx-auto lg:py-5">
       <div
         id="pokemon-lists"
-        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-3 lg:gap-4 py-10"
+        class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-3 lg:gap-4 p-3 lg:p-0"
       ></div>
 
-      <div class="flex justify-between px-10">
-        <button id="previous" class="btn" type="button">Previous</button>
-        <button id="next" class="btn" type="button">Next</button>
+      <div class="flex gap-3 justify-center lg:mt-5">
+        <button id="previous" class="btn btn-sm" type="button">Previous</button>
+        <button id="next" class="btn btn-sm" type="button">Next</button>
       </div>
     </div>
 
@@ -65,7 +56,7 @@
           img.className = "loading loading-spinner loading-md";
 
           const a = document.createElement("a");
-          a.className = "link link-primary";
+          a.className = "btn btn-primary text-primary-content";
           a.href = `./detail/index.html?name=${pokemon.name.toLowerCase()}`;
 
           div.appendChild(h2);
@@ -76,9 +67,10 @@
             .get(pokemon.url)
             .then((res) => {
               pokemon = res.data;
+              console.log(pokemon);
               h2.innerHTML = pokemon.name;
-              img.className = "";
-              img.src = pokemon.sprites.front_default;
+              img.className = "h-[80px] my-3";
+              img.src = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
               a.innerHTML = "more details";
             })
             .catch((err) => {

@@ -13,20 +13,8 @@
   </head>
 
   <body>
-    <div class="container py-10 mx-auto">
-      <img
-        class="mx-auto"
-        src="/public/assets/images/pokeapi.png"
-        alt="pokeapi"
-      />
-      <p class="mx-auto max-w-lg text-center mt-5 text-lg p-3 md:p-0">
-        All the Pokémon data you'll ever need in one place, easily accessible
-        through a modern free open-source RESTful API.
-      </p>
-      <div
-        class="mx-auto max-w-4xl mt-10 flex justify-center gap-3"
-        id="pokemon"
-      ></div>
+    <div class="container p-3 mx-auto">
+      <div class="mx-auto max-w-4xl" id="pokemon"></div>
     </div>
 
     <script>
@@ -37,8 +25,8 @@
         const main = document.createElement("div");
 
         const img = document.createElement("img");
-        img.className = "mx-auto";
-        img.src = pokemon.sprites.front_default;
+        img.className = "h-[100px] mx-auto mb-5";
+        img.src = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
         main.appendChild(img);
 
         const h1 = document.createElement("h1");
