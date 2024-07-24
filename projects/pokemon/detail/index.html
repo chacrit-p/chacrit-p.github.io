@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="dark" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="container p-3 mx-auto">
+    <div class="container p-3 mx-auto mt-10">
       <div class="mx-auto max-w-4xl" id="pokemon"></div>
     </div>
 
@@ -21,12 +21,18 @@
       const pokemonDiv = document.getElementById("pokemon");
 
       const renderPokemon = (pokemon) => {
+        console.log(pokemon);
         document.title = pokemon.name;
         const main = document.createElement("div");
+        main.className =
+          "p-3 bg-slate-400 text-primary-content rounded-box flex flex-col gap-3";
 
         const img = document.createElement("img");
-        img.className = "h-[100px] mx-auto mb-5";
-        img.src = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
+        img.className = "h-[200px] mx-auto mb-5";
+        img.src =
+          pokemon.sprites.versions["generation-v"][
+            "black-white"
+          ].animated.front_default;
         main.appendChild(img);
 
         const h1 = document.createElement("h1");
@@ -34,24 +40,60 @@
         h1.textContent = pokemon.name;
         main.appendChild(h1);
 
-        const types = pokemon.types;
-        types.forEach((type) => {
-          const typeElement = document.createElement("span");
-          typeElement.className = "badge badge-primary mr-2 mb-2 mt-2";
-          typeElement.textContent = type.type.name;
-          main.appendChild(typeElement);
-        });
-
-        main.appendChild(document.createElement("br"));
-
-        const weight = document.createElement("span");
-        weight.className = "mr-4";
-        weight.innerHTML = `weight: ${pokemon.weight}`;
+        const weight = document.createElement("p");
+        weight.className = "mr-4 text-lg font-semibold";
+        weight.innerHTML = `weight: ${pokemon.weight} kg`;
         main.appendChild(weight);
 
-        const height = document.createElement("span");
-        height.innerHTML = `height: ${pokemon.height}`;
+        const height = document.createElement("p");
+        height.className = "text-lg font-semibold";
+        height.innerHTML = `height: ${pokemon.height} meters`;
         main.appendChild(height);
+
+        const divType = document.createElement("div");
+        const titleType = document.createElement("span");
+
+        titleType.innerHTML = "Types: ";
+        divType.appendChild(titleType);
+        const types = pokemon.types;
+
+        types.forEach((type) => {
+          const typeElement = document.createElement("a");
+          typeElement.className = "btn btn-sm btn-secondary mr-2";
+          typeElement.href = `../type/index.html?type=${type.type.name.toLowerCase()}`;
+          typeElement.textContent = type.type.name;
+          divType.appendChild(typeElement);
+        });
+        main.appendChild(divType);
+
+        const divAbl = document.createElement("div");
+        const titleAbl = document.createElement("span");
+
+        titleAbl.innerHTML = "Abilities: ";
+        divAbl.appendChild(titleAbl);
+        const abilities = pokemon.abilities;
+
+        abilities.forEach((ability) => {
+          const abilityElement = document.createElement("a");
+          abilityElement.className = "btn btn-sm btn-primary mr-2";
+          abilityElement.href = `../ability/index.html?ability=${ability.ability.name.toLowerCase()}`;
+          abilityElement.textContent = ability.ability.name;
+          divAbl.appendChild(abilityElement);
+        });
+        main.appendChild(divAbl);
+
+        const divStat = document.createElement("div");
+        const titleStat = document.createElement("span");
+
+        titleStat.innerHTML = "Stat: ";
+        divStat.appendChild(titleStat);
+        const stats = pokemon.stats;
+        stats.forEach((stat) => {
+          const statElement = document.createElement("p");
+          statElement.textContent = `${stat.stat.name} : ${stat.base_stat}`;
+          divStat.appendChild(statElement);
+        });
+        main.appendChild(divStat);
 
         pokemonDiv.appendChild(main);
       };

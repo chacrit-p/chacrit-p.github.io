@@ -14,43 +14,24 @@
   </head>
 
   <body data-theme="dark">
-    <div class="container mx-auto lg:py-5">
+    <div class="container mx-auto lg:py-5 min-h-screen">
+      <h1 class="text-center text-4xl mb-5" id="ability"></h1>
       <div
         id="pokemon-lists"
         class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-3 lg:gap-4 p-3 lg:p-0"
       ></div>
-
-      <div class="flex gap-3 justify-center lg:mt-5">
-        <button id="previous" class="btn btn-sm btn-outline" type="button">
-          Previous
-        </button>
-        <button id="next" class="btn btn-sm btn-outline" type="button">
-          Next
-        </button>
-      </div>
     </div>
 
     <script>
       const pokemonLists = document.getElementById("pokemon-lists");
-      const nextButton = document.getElementById("next");
-      const previousButton = document.getElementById("previous");
-
+      const title = document.getElementById("ability");
       let pokemons = null;
-      let next = null;
-      let previous = null;
-
-      nextButton.addEventListener("click", () => {
-        getPokemons(next);
-      });
-
-      previousButton.addEventListener("click", () => {
-        getPokemons(previous);
-      });
 
       const setPokemons = (value) => {
         pokemons = value;
         pokemonLists.innerHTML = "";
         pokemons.forEach((pokemon) => {
+          console.log(pokemon);
           const div = document.createElement("div");
           div.className =
             "bg-base-100 p-4 rounded-box border border-primary shadow-xl flex flex-col items-center";
@@ -61,17 +42,16 @@
 
           const a = document.createElement("a");
           a.className = "btn btn-primary text-primary-content";
-          a.href = `./detail/index.html?name=${pokemon.name.toLowerCase()}`;
+          a.href = `../detail/index.html?name=${pokemon.pokemon.name.toLowerCase()}`;
 
           div.appendChild(h2);
           div.appendChild(img);
           div.appendChild(a);
           pokemonLists.appendChild(div);
           axios
-            .get(pokemon.url)
+            .get(pokemon.pokemon.url)
             .then((res) => {
               pokemon = res.data;
-              console.log(pokemon);
               h2.innerHTML = pokemon.name;
               img.className = "h-[80px] my-3";
               img.src =
@@ -86,36 +66,22 @@
         });
       };
 
-      const setNext = (url) => {
-        next = url;
-        nextButton.disabled = false;
-        if (next == null) {
-          nextButton.disabled = true;
-        }
-      };
-
-      const setPrevious = (url) => {
-        previous = url;
-        previousButton.disabled = false;
-        if (previous == null) {
-          previousButton.disabled = true;
-        }
-      };
-
       const getPokemons = (url) => {
         axios
           .get(url)
           .then((res) => {
-            setPrevious(res.data.previous);
-            setNext(res.data.next);
-            setPokemons(res.data.results);
+            const pokemons = res.data.pokemon;
+            setPokemons(pokemons);
           })
           .catch((err) => {
-            console.log(err);
+            console.error("Error fetching Pokémon data:", err);
           });
       };
 
-      getPokemons("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
+      const urlParams = new URLSearchParams(window.location.search);
+      const ability = urlParams.get("ability");
+      title.innerHTML = ability;
+      getPokemons(`https://pokeapi.co/api/v2/ability/${ability}`);
     </script>
   </body>
 </html>
