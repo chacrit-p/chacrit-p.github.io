@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="dark" lang="en">
+<html data-theme="dracula" lang="en">
   <head>
     <title>My Portfolio</title>
     <meta charset="UTF-8" />
@@ -56,14 +56,16 @@
   </style>
   <body>
     <main class="antialiased bg-base-100 text-base-content">
-      <section class="max-w-4xl mx-auto w-full p-3 xl:p-0 md:mt-10">
-        <div class="flex flex-col items-center gap-5 md:gap-7">
+      <section
+        class="max-w-4xl mx-auto w-full p-4 xl:p-0 md:px-10 mt-5 md:mt-10"
+      >
+        <div class="flex flex-col items-center">
           <div class="avatar">
             <div class="w-56 rounded-sm shadow-xl">
               <img src="/public/assets/images/avatar.gif" alt="avatar" />
             </div>
           </div>
-          <div class="">
+          <div class="my-5">
             <span class="badge badge-sm md:badge-md badge-info badge-outline">
               Cis Student
             </span>
@@ -76,18 +78,18 @@
           </div>
           <h1
             id="typewriter"
-            class="text-xl sm:text-4xl font-bold whitespace-nowrap h-[36px]"
+            class="text-2xl sm:text-4xl font-bold whitespace-nowrap h-[36px]"
           ></h1>
           <div>
-            <h2 class="text-xl sm:text-2xl font-semibold text-center mb-4">
+            <h2 class="text-xl sm:text-2xl font-semibold text-center mt-3 mb-1">
               About Me
             </h2>
-            <p class="text-lg mb-4 text-center">
+            <p class="text-center mb-5 text-sm sm:text-base">
               Hello! My name is Chacrit Poonpipit I am a web developer with a
               passion for creating dynamic and responsive websites. I have a
               background in computer science.
             </p>
-            <div class="flex gap-5 justify-center">
+            <div class="flex gap-3 justify-center">
               <div class="tooltip tooltip-bottom" data-tip="my github">
                 <a target="_blank" href="https://github.com/chacrit-p">
                   <svg
@@ -129,19 +131,20 @@
             </div>
           </div>
           <div class="w-full">
-            <h2 class="text-xl sm:text-2xl font-semibold text-center mb-4">
+            <h2 class="text-xl sm:text-2xl font-semibold text-center my-5">
               My Projects
             </h2>
-            <ul class="list-inside list-decimal w-full space-y-2">
+            <ul class="list-inside list-decimal w-full space-y-4">
               <li>
-                <a class="link text-lg" href="/projects/todo/index.html"
-                  >Todo List</a
-                >
+                <a class="link" href="/projects/todo/index.html">Todo List</a>
               </li>
               <li>
-                <a class="link text-lg" href="/projects/pokemon/index.html"
-                  >Pokemon Labs</a
-                >
+                <a class="link" href="/projects/pokemon/index.html">
+                  Pokemon Labs
+                </a>
+              </li>
+              <li>
+                <a class="link" href="/projects/weather/">Weather Reports</a>
               </li>
             </ul>
           </div>
