@@ -1,157 +1,158 @@
 <!DOCTYPE html>
-<html data-theme="dracula" lang="en">
+<html lang="en">
   <head>
-    <title>My Portfolio</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="My Portfolio" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://chacrit-p.github.io" />
-    <meta property="og:image" content="/public/assets/logo.jpg" />
-    <meta
-      property="og:description"
-      content="Welcome to my portfolio website! This is a simple and clean
-      portfolio showcasing my work and projects."
-    />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/public/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/public/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/public/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/public/site.webmanifest" />
+
+    <title>My Portfolio</title>
 
     <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.7/dist/full.min.css"
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
       rel="stylesheet"
       type="text/css"
     />
-
-    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/snowstorm-min.js"></script>
   </head>
-  <style>
-    main {
-      font-family: "Roboto", sans-serif;
-    }
-  </style>
-  <body>
-    <main class="antialiased bg-base-100 text-base-content">
-      <section
-        class="max-w-4xl mx-auto w-full p-4 xl:p-0 md:px-10 mt-5 md:mt-10"
-      >
-        <div class="flex flex-col items-center">
-          <div class="avatar">
-            <div class="w-56 rounded-sm shadow-xl">
-              <img src="/public/assets/images/avatar.gif" alt="avatar" />
+  <body data-theme="dark">
+    <main class="antialiased bg-base-200 text-base-content min-h-screen">
+      <div class="max-w-3xl mx-auto w-full">
+        <div class="p-4 md:p-6 lg:p-8 xl:pb-8">
+          <section>
+            <div class="flex justify-center">
+              <div class="avatar">
+                <div class="rounded-full">
+                  <img src="/obito.gif" alt="obito" />
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="my-5">
-            <span class="badge badge-sm md:badge-md badge-info badge-outline">
-              Cis Student
-            </span>
-            <span class="badge badge-sm md:badge-md badge-info badge-outline">
-              Frontend Dev
-            </span>
-            <span class="badge badge-sm md:badge-md badge-info badge-outline">
-              Backend Dev
-            </span>
-          </div>
-          <h1
-            id="typewriter"
-            class="text-2xl sm:text-4xl font-bold whitespace-nowrap h-[36px]"
-          ></h1>
-          <div>
-            <h2 class="text-xl sm:text-2xl font-semibold text-center mt-3 mb-1">
-              About Me
-            </h2>
-            <p class="text-center mb-5 text-sm sm:text-base">
-              Hello! My name is Chacrit Poonpipit I am a web developer with a
-              passion for creating dynamic and responsive websites. I have a
-              background in computer science.
+          </section>
+          <section class="mt-8">
+            <h1 class="text-2xl font-semibold">Hello, Welcome!</h1>
+            <p class="mt-2 text-base-content/80">
+              Welcome to my portfolio website! This is a simple and clean
+              portfolio showcasing my work and projects.
             </p>
-            <div class="flex gap-3 justify-center">
-              <div class="tooltip tooltip-bottom" data-tip="my github">
-                <a target="_blank" href="https://github.com/chacrit-p">
-                  <svg
-                    class="size-9 stroke-secondary text-base-100 hover:text-base-content hover:stroke-none transition"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+          </section>
+          <section class="mt-8">
+            <h2 class="text-2xl font-semibold">About Me</h2>
+            <p class="mt-2 text-base-content/80">
+              My name is Chacrit Poonpipit. I am a CIS student in grade 3 with a
+              passion for technology and learning. I enjoy working on projects
+              that challenge me to grow and expand my skills. My hobbies include
+              listening to music and playing games. I have experience writing in
+              Vue.js and Laravel.
+            </p>
+          </section>
+
+          <section class="mt-8">
+            <h2 class="text-2xl font-semibold">Projects</h2>
+            <p class="mt-2 text-base-content/80">
+              Here are some of the projects I've worked on:
+            </p>
+            <div class="mt-4 space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div
+                  class="p-6 bg-base-200 border border-gray-800 shadow-xl rounded-btn"
+                >
+                  <h3 class="text-xl font-semibold">Todo List</h3>
+                  <p class="my-2 text-base-content/80">
+                    This project is a basic Todo List application built using
+                    HTML, CSS, and vanilla JavaScript. It allows users to add
+                    and delete tasks with a simple and clean interface.
+                  </p>
+                  <a
+                    href="/projects/todo/index.html"
+                    class="text-primary hover:underline"
                   >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z"
-                      clip-rule="evenodd"
-                    ></path></svg
-                ></a>
-              </div>
-              <div class="tooltip tooltip-bottom" data-tip="my email">
-                <a target="_blank" href="mailto:chacrit.p@kkumail.com">
-                  <svg
-                    class="size-9 stroke-secondary text-base-100 hover:text-base-content hover:stroke-none transition"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+                    View Project
+                  </a>
+                </div>
+                <div
+                  class="p-6 bg-base-200 border border-gray-800 shadow-xl rounded-btn"
+                >
+                  <h3 class="text-xl font-semibold">Pokemon Labs</h3>
+                  <p class="my-2 text-base-content/80">
+                    Pokemon Lab is a web app that uses the PokeAPI to display
+                    Pokémon details like stats and images. Built with HTML, CSS,
+                    and vanilla JavaScript, it showcases API integration and
+                    dynamic content rendering.
+                  </p>
+                  <a
+                    href="/projects/pokemon/index.html"
+                    class="text-primary hover:underline"
                   >
-                    <path
-                      d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z"
-                    ></path>
-                    <path
-                      d="M20.677 4.117A1.996 1.996 0 0 0 20 4H4c-.225 0-.44.037-.642.105l.758.607L12 10.742 19.9 4.7l.777-.583Z"
-                    ></path>
-                  </svg>
-                </a>
+                    View Project
+                  </a>
+                </div>
+                <div
+                  class="p-6 bg-base-200 border border-gray-800 shadow-xl rounded-btn"
+                >
+                  <h3 class="text-xl font-semibold">Weather Reports</h3>
+                  <p class="my-2 text-base-content/80">
+                    The Weather App is a simple application that uses the
+                    OpenWeather API to fetch and display current weather
+                    conditions for any city. Built with HTML, CSS, and vanilla
+                    JavaScript, it features real-time data and a clean,
+                    user-friendly interface.
+                  </p>
+                  <a
+                    href="/projects/weather/index.html"
+                    class="text-primary hover:underline"
+                  >
+                    View Project
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="w-full">
-            <h2 class="text-xl sm:text-2xl font-semibold text-center my-5">
-              My Projects
-            </h2>
-            <ul class="list-inside list-decimal w-full space-y-4">
+          </section>
+
+          <section class="mt-8">
+            <h2 class="text-2xl font-semibold">Contact</h2>
+            <p class="mt-2 text-base-content/80">
+              You can reach me through the following platforms:
+            </p>
+            <ul class="mt-4 space-y-2 list-inside">
               <li>
-                <a class="link" href="/projects/todo/index.html">Todo List</a>
-              </li>
-              <li>
-                <a class="link" href="/projects/pokemon/index.html">
-                  Pokemon Labs
+                <a
+                  target="_blank"
+                  href="https://github.com/chacrit-p/"
+                  class="text-info hover:underline"
+                >
+                  GitHub: chacrit-p
                 </a>
               </li>
               <li>
-                <a class="link" href="/projects/weather/">Weather Reports</a>
+                <a
+                  target="_blank"
+                  href="mailto:chacrit.p@kkumail.com"
+                  class="text-info hover:underline"
+                >
+                  Gmail: chacrit.p@kkumail.com
+                </a>
               </li>
             </ul>
-          </div>
+          </section>
         </div>
-      </section>
+      </div>
+      <footer class="footer footer-center bg-base-300 text-base-content p-4">
+        <aside>
+          <p id="copyright"></p>
+        </aside>
+      </footer>
     </main>
-    <script src="./textwriter.js"></script>
-    <script src="./snowstorm-min.js"></script>
   </body>
+  <script>
+    const year = new Date().getFullYear();
+    document.getElementById(
+      "copyright"
+    ).textContent = `Copyright © ${year} Chacrit Poonpipit. All rights reserved.`;
+  </script>
 </html>
